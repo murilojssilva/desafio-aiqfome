@@ -1,0 +1,16 @@
+{
+  "restaurant": {
+    "id": 0,
+    "name": "Matsuri Concept",
+    "logo": "matsuri.png",
+    "products": [
+      {
+        "id": 0,
+        "product_name": "Ceviche de salmão",
+        "initial_value": 1990,
+        "image": "ceviche.png",
+        "description": "salmão temperado com limão, cebola e pimenta"
+      }
+    ]
+  }
+}
