@@ -4,21 +4,30 @@
       v-if="name || oldPrice || newPrice || price || value"
       class="flex flex-row gap-2 items-center"
     >
+      <i
+        v-show="item === cart.size"
+        class="icon pi pi-check bg-button_enter text-white text-xs p-1 rounded-full"
+      ></i>
       <input
+        v-show="item !== cart.size"
         :id="item"
         type="radio"
         :value="value"
         :name="value"
-        class="flex flex-row gap-2 items-center"
+        class="flex flex-row gap-2 items-center w-5 h-5 checked:text-button_enter bg-gray-100 border-gray-300 focus:ring-button_enter dark:focus:ring-button_enter"
       />
-      <label :for="item" class="text-base text-infos"
-        ><i
-          class="bg-transparent text-button_enter text-sm"
-          :class="`icon ${icon_name}`"
+
+      <label :for="item" class="text-base text-infos">
+        <i
+          class="bg-transparent text-button_enter text-xs p-0.5 rounded-full"
+          :class="`icon ${iconName} ${borderColor} ${borderWidth}`"
+          style="font-weight: bold"
         ></i>
+
         {{ name }}</label
       >
     </div>
+
     <span v-if="oldPrice" class="text-xs font-bold text-infos"
       >{{ oldPrice }}
       <span v-if="newPrice" class="text-xs font-bold text-button_enter">{{
@@ -33,23 +42,49 @@
 
 <script>
 export default {
-  name: "RadioItem",
+  name: 'RadioItem',
   props: {
-    name: String,
-    newPrice: String,
-    oldPrice: String,
-    icon_name: String,
-    price: String,
-    item: String,
-    value: String,
+    name: {
+      type: String,
+      default: '',
+    },
+    borderColor: {
+      type: String,
+      default: 'transparent',
+    },
+    borderWidth: {
+      type: String,
+      default: 'border-0',
+    },
+    newPrice: {
+      type: String,
+      default: '',
+    },
+    oldPrice: {
+      type: String,
+      default: '',
+    },
+    iconName: {
+      type: String,
+      default: '',
+    },
+    price: {
+      type: String,
+      default: '',
+    },
+    item: {
+      type: String,
+      default: '',
+    },
+    value: {
+      type: String,
+      default: '',
+    },
   },
-};
+  data: function () {
+    return {
+      cart: this.$store.state.cart,
+    }
+  },
+}
 </script>
-
-<div class="flex items-center mb-4">
-    
-</div>
-<div class="flex items-center">
-    <input checked id="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-    <label for="default-radio-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Checked state</label>
-</div>

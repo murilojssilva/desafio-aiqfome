@@ -15,17 +15,17 @@
 
 <script>
 export default {
-  name: "RadioItem",
+  name: 'RadioItem',
   props: {
     titleText: {
       type: String,
-      default: "",
+      default: '',
     },
     subtitleText: {
       type: String,
-      default: "",
+      default: '',
     },
     obrigatory: Boolean,
   },
-};
+}
 </script>

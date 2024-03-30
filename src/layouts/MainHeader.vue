@@ -43,6 +43,7 @@
       </div>
       <div class="flex end-0 gap-6">
         <ButtonItem
+          v-show="isCartEqualInitialCart"
           text="ver ticket"
           background-color="bg-bookmark"
           text-color="text-bookmark_text"
@@ -76,6 +77,33 @@ export default {
     address: {
       type: String,
       default: '',
+    },
+  },
+  data() {
+    return {
+      cart: this.$store.state.cart,
+      initial_cart: {
+        size: '',
+        drink: {
+          coke: 0,
+          juice: 0,
+          water: 0,
+        },
+        additional: {
+          hashi: false,
+          fork_and_knife: false,
+        },
+        dessert: {
+          cookie: false,
+          spring_roll: false,
+        },
+      },
+    }
+  },
+  computed: {
+    isCartEqualInitialCart() {
+      // Verifica se cart e initial_cart são iguais
+      return JSON.stringify(this.cart) === JSON.stringify(this.initial_cart)
     },
   },
 }
