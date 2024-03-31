@@ -2,7 +2,9 @@
   <nav
     class="flex flex-row w-full text-white mr-6 gap-4 justify-between px-8 py-3 bg-purple-750"
   >
-    <div class="flex w-full justify-between gap-2 lg:flex-row tablet:flex-col">
+    <div
+      class="flex w-full items-center justify-between gap-2 lg:flex-row tablet:flex-col"
+    >
       <div class="flex gap-8 items-center">
         <div class="flex w-full gap-4">
           <img

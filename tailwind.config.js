@@ -20,6 +20,7 @@ module.exports = {
         'purple-850': '#580F78',
       },
       width: {
+        29.5: '118px',
         105: '420px',
         161: '644px',
       },
