@@ -22,7 +22,7 @@ export default {
     return {
       restaurant: {},
       cart: {
-        size: 'medium',
+        size: '',
         drink: {
           coke: 0,
           juice: 0,

@@ -12,12 +12,12 @@
 export default {
   name: 'ButtonItem',
   props: {
-    text: String,
-    backgroundColor: String,
-    textColor: String,
-    iconName: String,
-    iconBackgroundColor: String,
-    iconTextColor: String,
+    text: { type: String, default: '' },
+    backgroundColor: { type: String, default: '' },
+    textColor: { type: String, default: '' },
+    iconName: { type: String, default: '' },
+    iconBackgroundColor: { type: String, default: '' },
+    iconTextColor: { type: String, default: '' },
   },
 }
 </script>

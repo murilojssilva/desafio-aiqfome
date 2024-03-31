@@ -97,7 +97,7 @@
           ></i>
 
           <RadioItem
-            v-show="value !== cart.size"
+            :is-selected="cart.size === 'medium'"
             name=" médio"
             element="medium"
             new-price="R$ 19,90"
@@ -111,6 +111,7 @@
           />
 
           <RadioItem
+            :is-selected="cart.size === 'big'"
             name=" grande"
             element="big"
             price="R$ 28,90"
@@ -228,6 +229,7 @@
             name=" hashi"
             item="hashi"
             value="additional"
+            :is-selected="cart.additional.hashi"
             @click="addHashi()"
           />
 
@@ -236,6 +238,7 @@
             price="+R$ 1,00"
             item="fork_and_knife"
             value="additional"
+            :is-selected="cart.additional.fork_and_knife"
             @click="addForkAndKnife()"
           />
 
@@ -273,6 +276,7 @@
 
 <script>
 import RadioItem from '@/components/RadioItem.vue'
+
 import ButtonItem from '@/components/ButtonItem.vue'
 import CheckboxItem from '@/components/CheckboxItem.vue'
 import Title from '@/components/Title.vue'
@@ -283,6 +287,7 @@ export default {
   name: 'App',
   components: {
     RadioItem,
+
     Title,
     CheckboxItem,
     ButtonItem,

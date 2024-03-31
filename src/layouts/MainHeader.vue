@@ -5,12 +5,9 @@
     <div class="flex w-full items-center justify-between">
       <div class="flex gap-8 items-center">
         <img
-          class="fill-current h-16 w-16 mr-2"
-          width="54"
-          height="54"
-          viewBox="0 0 54 54"
+          class="h-16 w-16 mr-2"
           src="@/assets/images/logo.svg"
-          alt=""
+          alt="Logo aiqfome"
         />
 
         <div class="flex flex-row items-center gap-2">
@@ -28,22 +25,11 @@
           </span>
         </div>
 
-        <div class="relative">
-          <input
-            type="text"
-            class="py-3 px-4 ps-11 border-transparent rounded-lg text-sm placeholder:text-placeholder lg:w-105 sm:w-32"
-            placeholder="busque pela loja ou culinária"
-          />
-          <div
-            class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4"
-          >
-            <i class="icon pi pi-search bg-transparent text-placeholder"></i>
-          </div>
-        </div>
+        <SearchBar />
       </div>
       <div class="flex end-0 gap-6">
         <ButtonItem
-          v-show="isCartEqualInitialCart"
+          v-show="!isCartEqualInitialCart"
           text="ver ticket"
           background-color="bg-bookmark"
           text-color="text-bookmark_text"
@@ -67,11 +53,13 @@
 
 <script>
 import ButtonItem from '@/components/ButtonItem.vue'
+import SearchBar from '@/components/SearchBar.vue'
 
 export default {
   name: 'MainHeader',
   components: {
     ButtonItem,
+    SearchBar,
   },
   props: {
     address: {
@@ -102,7 +90,6 @@ export default {
   },
   computed: {
     isCartEqualInitialCart() {
-      // Verifica se cart e initial_cart são iguais
       return JSON.stringify(this.cart) === JSON.stringify(this.initial_cart)
     },
   },

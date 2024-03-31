@@ -12,20 +12,20 @@
 
 <script>
 export default {
-  name: "RadioItem",
+  name: 'RadioItem',
   props: {
     text: {
       type: String,
-      default: "",
+      default: '',
     },
     value: {
       type: String,
-      default: "",
+      default: '',
     },
     item: {
       type: String,
-      default: "",
+      default: '',
     },
   },
-};
+}
 </script>

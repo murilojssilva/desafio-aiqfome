@@ -5,11 +5,11 @@
       class="flex flex-row gap-2 items-center"
     >
       <i
-        v-show="item === cart.size"
+        v-show="isSelected"
         class="icon pi pi-check bg-button_enter text-white text-xs p-1 rounded-full"
       ></i>
       <input
-        v-show="item !== cart.size"
+        v-show="!isSelected"
         :id="item"
         type="radio"
         :value="value"
@@ -17,15 +17,20 @@
         class="flex flex-row gap-2 items-center w-5 h-5 checked:text-button_enter bg-gray-100 border-gray-300 focus:ring-button_enter dark:focus:ring-button_enter"
       />
 
-      <label :for="item" class="text-base text-infos">
+      <label
+        :for="item"
+        :class="{
+          'font-bold': isSelected,
+        }"
+        class="text-base text-infos"
+      >
         <i
           class="bg-transparent text-button_enter text-xs p-0.5 rounded-full"
           :class="`icon ${iconName} ${borderColor} ${borderWidth}`"
           style="font-weight: bold"
         ></i>
-
-        {{ name }}</label
-      >
+        {{ name }}
+      </label>
     </div>
 
     <span v-if="oldPrice" class="text-xs font-bold text-infos"
@@ -79,6 +84,10 @@ export default {
     value: {
       type: String,
       default: '',
+    },
+    isSelected: {
+      type: Boolean,
+      default: false,
     },
   },
   data: function () {
