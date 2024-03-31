@@ -1,46 +1,47 @@
 <template>
   <nav
-    class="flex w-full text-white mr-6 gap-4 justify-between px-8 py-3 bg-bookmark_text"
+    class="flex flex-row w-full text-white mr-6 gap-4 justify-between px-8 py-3 bg-purple-750"
   >
-    <div class="flex w-full items-center justify-between">
+    <div class="flex w-full justify-between gap-2 lg:flex-row tablet:flex-col">
       <div class="flex gap-8 items-center">
-        <img
-          class="h-16 w-16 mr-2"
-          src="@/assets/images/logo.svg"
-          alt="Logo aiqfome"
-        />
+        <div class="flex w-full gap-4">
+          <img
+            class="h-16 w-16 mr-2"
+            src="@/assets/images/logo.svg"
+            alt="Logo aiqfome"
+          />
 
-        <div class="flex flex-row items-center gap-2">
-          <i
-            class="icon pi pi-map-marker text-lg bg-transparent text-white"
-          ></i>
-          <span class="font-semibold text-xl tracking-tight">
-            <p class="text-sm font-semibold text-delivery_in">entregando em</p>
-            <h2 class="text-lg font-bold text-white">
-              {{ address }}
-              <i
-                class="icon pi pi-chevron-right text-sm bg-transparent text-white"
-              ></i>
-            </h2>
-          </span>
+          <div class="flex flex-row items-center gap-2">
+            <i
+              class="icon pi pi-map-marker text-lg bg-transparent text-white"
+            ></i>
+            <span class="font-semibold text-xl tracking-tight">
+              <p class="text-sm font-semibold text-blue-150">entregando em</p>
+              <h2 class="text-lg font-bold text-white">
+                {{ address
+                }}<i
+                  class="icon pi pi-chevron-right text-sm bg-transparent text-white"
+                ></i>
+              </h2>
+            </span>
+          </div>
         </div>
-
         <SearchBar />
       </div>
-      <div class="flex end-0 gap-6">
+      <div class="flex flex-row gap-8">
         <ButtonItem
           v-show="!isCartEqualInitialCart"
           text="ver ticket"
-          background-color="bg-bookmark"
-          text-color="text-bookmark_text"
+          background-color="bg-purple-150"
+          text-color="text-purple-750"
           icon-name="pi pi-bookmark"
           icon-background-color="bg-transparent"
-          icon-text-color="text-bookmark_text"
+          icon-text-color="text-purple-750"
         />
 
         <ButtonItem
           text="entrar"
-          background-color="bg-button_enter"
+          background-color="bg-teal-500"
           text-color="text-white"
           icon-name="pi pi-user"
           icon-background-color="bg-transparent"

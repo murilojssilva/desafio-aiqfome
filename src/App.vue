@@ -1,4 +1,4 @@
-<template>
+<template class="font-nunito">
   <MainHeader address="Rua Mandaguari, 198" />
 
   <MainPage />

@@ -1,10 +1,24 @@
 <template>
-  <div class="flex flex-row justify-between items-center w-1/3">
+  <div
+    class="flex flex-row justify-between items-center laptop:w-1/3 tablet:w-full"
+  >
     <div v-if="item || value || text" class="flex flex-row gap-2 items-center">
-      <input :id="item" type="checkbox" :name="item" />
-      <label class="text-base text-infos" :for="item">{{ text }}</label>
+      <input
+        :id="item"
+        type="checkbox"
+        :name="item"
+        class="flex flex-row gap-2 items-center w-5 h-5"
+      />
+      <label
+        class="text-base text-gray-500"
+        :class="{
+          'font-bold': isSelected,
+        }"
+        :for="item"
+        >{{ text }}</label
+      >
     </div>
-    <span v-if="value" class="text-xs font-bold text-bookmark_text">{{
+    <span v-if="value" class="text-xs font-bold text-purple-750">{{
       value
     }}</span>
   </div>
@@ -25,6 +39,10 @@ export default {
     item: {
       type: String,
       default: '',
+    },
+    isSelected: {
+      type: Boolean,
+      default: false,
     },
   },
 }

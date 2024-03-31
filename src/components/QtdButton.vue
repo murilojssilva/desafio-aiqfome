@@ -22,11 +22,11 @@ export default {
     },
     borderColor: {
       type: String,
-      default: 'border-button_enter',
+      default: 'border-teal-500',
     },
     textColor: {
       type: String,
-      default: 'text-button_enter',
+      default: 'text-teal-500',
     },
   },
 }

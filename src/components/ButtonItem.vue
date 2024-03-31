@@ -1,6 +1,6 @@
 <template>
   <button
-    class="hover:bg-opacity-90 font-bold py-2 px-4 rounded text-center flex flex-row items-center gap-2"
+    class="hover:bg-opacity-90 font-bold py-2 px-4 rounded text-center flex flex-row items-center gap-2 h-size-9"
     :class="`${backgroundColor} ${textColor}`"
   >
     <i :class="`icon ${iconName} ${iconBackgroundColor}  ${iconTextColor}`"></i>

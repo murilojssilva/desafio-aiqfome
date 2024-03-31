@@ -1,12 +1,14 @@
 <template>
-  <div class="flex flex-row justify-between items-center w-1/3">
+  <div
+    class="flex flex-row justify-between items-center laptop:w-1/3 tablet:w-full"
+  >
     <div
       v-if="name || oldPrice || newPrice || price || value"
       class="flex flex-row gap-2 items-center"
     >
       <i
         v-show="isSelected"
-        class="icon pi pi-check bg-button_enter text-white text-xs p-1 rounded-full"
+        class="icon pi pi-check bg-teal-500 text-white text-xs p-1 rounded-full"
       ></i>
       <input
         v-show="!isSelected"
@@ -14,7 +16,7 @@
         type="radio"
         :value="value"
         :name="value"
-        class="flex flex-row gap-2 items-center w-5 h-5 checked:text-button_enter bg-gray-100 border-gray-300 focus:ring-button_enter dark:focus:ring-button_enter"
+        class="flex flex-row gap-2 items-center w-5 h-5"
       />
 
       <label
@@ -22,10 +24,10 @@
         :class="{
           'font-bold': isSelected,
         }"
-        class="text-base text-infos"
+        class="flex flex-row gap-2 text-base text-gray-500"
       >
         <i
-          class="bg-transparent text-button_enter text-xs p-0.5 rounded-full"
+          class="bg-transparent text-teal-500 text-xs p-1 rounded-full"
           :class="`icon ${iconName} ${borderColor} ${borderWidth}`"
           style="font-weight: bold"
         ></i>
@@ -33,13 +35,13 @@
       </label>
     </div>
 
-    <span v-if="oldPrice" class="text-xs font-bold text-infos"
+    <span v-if="oldPrice" class="text-xs font-bold text-gray-500"
       >{{ oldPrice }}
-      <span v-if="newPrice" class="text-xs font-bold text-button_enter">{{
+      <span v-if="newPrice" class="text-xs font-bold text-teal-500">{{
         newPrice
       }}</span></span
     >
-    <span v-if="price" class="text-xs font-bold text-bookmark_text">{{
+    <span v-if="price" class="text-xs font-bold text-purple-750">{{
       price
     }}</span>
   </div>

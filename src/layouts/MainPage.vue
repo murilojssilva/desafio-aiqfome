@@ -6,26 +6,26 @@
         :src="require('@/assets/images/' + restaurant.logo)"
       />
 
-      <h1 class="text-2xl font-bold text-title">{{ restaurant.name }}</h1>
+      <h1 class="text-2xl font-bold text-gray-800">{{ restaurant.name }}</h1>
     </section>
 
     <section
       v-for="product in restaurant.products"
       :key="product.id"
-      class="flex flex-row justify-between px-12"
+      class="flex flex-row justify-between px-12 laptop:flex-row tablet:flex-col gap-8"
     >
       <div class="flex flex-col">
         <div>
-          <h2 class="text-2xl font-bold text-subtitle">
+          <h2 class="text-2xl font-bold text-gray-700">
             {{ product.product_name }}
           </h2>
-          <p class="text-base font-bold text-infos">
+          <p class="text-base font-bold text-gray-500">
             a partir de
-            <span class="text-xl text-bookmark_text"
+            <span class="text-xl text-purple-750"
               >R$ {{ formatPrice(product.initial_value) }}</span
             >
           </p>
-          <p class="text-base text-infos">
+          <p class="text-base text-gray-500">
             {{ product.description }}
           </p>
         </div>
@@ -42,7 +42,7 @@
             <ButtonItem
               v-if="qtd === 0"
               text="adicionar"
-              background-color="bg-placeholder"
+              background-color="bg-gray-500"
               text-color="text-white"
               @click="addQtd()"
             />
@@ -59,8 +59,8 @@
                 v-else-if="qtd > 0"
                 icon-name="pi pi-minus"
                 background-color="bg-transparent"
-                text-color="text-button_enter"
-                border-color="border-button_enter"
+                text-color="text-teal-500"
+                border-color="border-teal-500"
                 @click="removeQtd()"
               />
 
@@ -69,8 +69,8 @@
               <QtdButton
                 icon-name="pi pi-plus"
                 background-color="bg-transparent"
-                text-color="text-button_enter"
-                border-color="border-button_enter"
+                text-color="text-teal-500"
+                border-color="border-teal-500"
                 @click="addQtd()"
               />
             </div>
@@ -90,7 +90,9 @@
           subtitle-text="escolha 1"
           obrigatory
         />
-        <div class="flex flex-row w-full justify-between py-4 gap-2">
+        <div
+          class="flex flex-row w-full justify-between py-4 laptop:flex-row tablet:flex-col gap-4"
+        >
           <i
             v-show="item === cart.size"
             class="pi pi-check bg-green-500 rounded-full p-1 text-white text-sm"
@@ -104,7 +106,7 @@
             old-price="de R$ 22,90 por"
             icon-name="pi pi-dollar"
             border-width="border-2"
-            border-color="border-button_enter"
+            border-color="border-teal-500"
             item="medium"
             value="size"
             @click="selectSize('medium')"
@@ -129,8 +131,12 @@
           subtitle-text="escolha quantos quiser"
         />
 
-        <div class="flex flex-row gap-8 justify-between py-4">
-          <div class="flex flex-row justify-between items-center w-1/3">
+        <div
+          class="flex flex-row gap-8 justify-between py-4 laptop:flex-row tablet:flex-col"
+        >
+          <div
+            class="flex flex-row justify-between items-center w-1/3 laptop:w-1/3 tablet:w-full"
+          >
             <div class="flex flex-row gap-2 items-center">
               <QtdButton v-if="cart.drink.coke >= 1" @click="removeCoke()" />
 
@@ -138,28 +144,30 @@
                 v-else
                 disabled
                 icon-name="pi pi-minus"
-                background-color="bg-bars"
-                text-color="text-minus_icon"
-                border-color="border-bars"
+                background-color="bg-gray-150"
+                text-color="text-gray-450"
+                border-color="border-gray-150"
                 @click="removeCoke()"
               />
 
-              <p class="text-subtitle text-sm font-bold">
+              <p class="text-gray-700 text-sm font-bold">
                 {{ cart.drink.coke }}
               </p>
               <QtdButton
                 icon-name="pi pi-plus"
                 background-color="bg-transparent"
-                text-color="text-button_enter"
-                border-color="border-button_enter"
+                text-color="text-teal-500"
+                border-color="border-teal-500"
                 @click="addCoke()"
               />
-              <p class="text-base text-infos">coca-cola</p>
+              <p class="text-base text-gray-500">coca-cola</p>
             </div>
-            <span class="text-xs font-bold text-bookmark_text">+R$ 5,00</span>
+            <span class="text-xs font-bold text-purple-750">+R$ 5,00</span>
           </div>
 
-          <div class="flex flex-row justify-between items-center w-1/3">
+          <div
+            class="flex flex-row justify-between items-center w-1/3 laptop:w-1/3 tablet:w-full"
+          >
             <div class="flex flex-row gap-2 items-center">
               <QtdButton v-if="cart.drink.juice >= 1" @click="removeJuice()" />
 
@@ -167,29 +175,31 @@
                 v-else
                 disabled
                 icon-name="pi pi-minus"
-                background-color="bg-bars"
-                text-color="text-minus_icon"
-                border-color="border-bars"
+                background-color="bg-gray-150"
+                text-color="text-gray-450"
+                border-color="border-gray-150"
                 @click="removeJuice()"
               />
 
-              <p class="text-subtitle text-sm font-bold">
+              <p class="text text-sm font-bold">
                 {{ cart.drink.juice }}
               </p>
 
               <QtdButton
                 icon-name="pi pi-plus"
                 background-color="bg-transparent"
-                text-color="text-button_enter"
-                border-color="border-button_enter"
+                text-color="text-teal-500"
+                border-color="border-teal-500"
                 @click="addJuice()"
               />
-              <p class="text-base text-infos">suco prats laranja</p>
+              <p class="text-base text-gray-500">suco prats laranja</p>
             </div>
-            <span class="text-xs font-bold text-bookmark_text">+R$ 6,00</span>
+            <span class="text-xs font-bold text-purple-750">+R$ 6,00</span>
           </div>
 
-          <div class="flex flex-row justify-between items-center w-1/3">
+          <div
+            class="flex flex-row justify-between items-center w-1/3 laptop:w-1/3 tablet:w-full"
+          >
             <div class="flex flex-row gap-2 items-center">
               <QtdButton v-if="cart.drink.water >= 1" @click="removeWater()" />
 
@@ -197,34 +207,36 @@
                 v-else
                 disabled
                 icon-name="pi pi-minus"
-                background-color="bg-bars"
-                text-color="text-minus_icon"
-                border-color="border-bars"
+                background-color="bg-gray-150"
+                text-color="text-gray-450"
+                border-color="border-gray-150"
                 @click="removeWater()"
               />
 
-              <p class="text-subtitle text-sm font-bold">
+              <p class="text-gray-700 text-sm font-bold">
                 {{ cart.drink.water }}
               </p>
 
               <QtdButton
                 icon-name="pi pi-plus"
                 background-color="bg-transparent"
-                text-color="text-button_enter"
-                border-color="border-button_enter"
+                text-color="text-teal-500"
+                border-color="border-teal-500"
                 @click="addWater()"
               />
 
-              <p class="text-base text-infos">água</p>
+              <p class="text-base text-gray-500">água</p>
             </div>
-            <span class="text-xs font-bold text-bookmark_text">+R$ 3,00</span>
+            <span class="text-xs font-bold text-purple-750">+R$ 3,00</span>
           </div>
         </div>
       </div>
       <div class="p-6">
         <Title title-text="precisa de talher?" subtitle-text="escolha até 1" />
 
-        <div class="flex flex-row gap-8 justify-between py-4">
+        <div
+          class="flex flex-row gap-8 justify-between py-4 laptop:flex-row tablet:flex-col"
+        >
           <RadioItem
             name=" hashi"
             item="hashi"
@@ -248,17 +260,21 @@
       <div class="p-6">
         <Title title-text="mais alguma coisa?" subtitle-text="escolha até 2" />
 
-        <div class="flex flex-row gap-8 justify-between py-4">
+        <div
+          class="flex flex-row gap-8 justify-between py-4 laptop:flex-row tablet:flex-col"
+        >
           <CheckboxItem
             text="biscoito da sorte"
             value="+ R$ 2,00"
             item="cookie"
+            :is-selected="cart.dessert.cookie"
             @click="handleCookie()"
           />
           <CheckboxItem
             text="rolinho primavera"
             value="+ R$ 8,00"
             item="spring_roll"
+            :is-selected="cart.dessert.spring_roll"
             @click="handleSpringRoll()"
           />
 
@@ -270,13 +286,12 @@
     <AditionalItems />
   </main>
   <main v-else class="flex items-center justify-center h-screen">
-    <i class="pi pi-spin pi-spinner text-xl text-bookmark_text"></i>
+    <i class="pi pi-spin pi-spinner text-xl text-purple-750"></i>
   </main>
 </template>
 
 <script>
 import RadioItem from '@/components/RadioItem.vue'
-
 import ButtonItem from '@/components/ButtonItem.vue'
 import CheckboxItem from '@/components/CheckboxItem.vue'
 import Title from '@/components/Title.vue'
@@ -287,7 +302,6 @@ export default {
   name: 'App',
   components: {
     RadioItem,
-
     Title,
     CheckboxItem,
     ButtonItem,

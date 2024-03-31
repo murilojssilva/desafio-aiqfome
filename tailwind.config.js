@@ -2,25 +2,22 @@
 module.exports = {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   fontFamily: {
-    nunito: ['nunito', 'sans-serif'],
-    MyFont: ['"My Font"', 'serif'], // Ensure fonts with spaces have " " surrounding it.
+    nunito: ['Nunito', 'sans-serif'],
+    'my-font': ['"My Font"', 'serif'],
   },
   darkMode: false,
   content: [],
   theme: {
     extend: {
       colors: {
-        delivery_in: '#EECFFC',
-        placeholder: '#6D6F73',
-        button_enter: '#00A296',
-        bookmark: '#F8ECFE',
-        bookmark_text: '#7B1FA2',
-        title: '#202326',
-        subtitle: '#393A3C',
-        bars: '#EEF0F5',
-        infos: '#6D6F73',
-        footer_text: '#580F78',
-        minus_icon: '#A8ADB7',
+        'blue-150': '#EECFFC',
+
+        'gray-150': '#EEF0F5',
+        'gray-450': '#A8ADB7',
+
+        'purple-150': '#F8ECFE',
+        'purple-750': '#7B1FA2',
+        'purple-850': '#580F78',
       },
       width: {
         105: '420px',
@@ -28,6 +25,10 @@ module.exports = {
       },
       sizes: {
         xss: '8px',
+      },
+      screens: {
+        tablet: '520px',
+        laptop: '1024px',
       },
     },
   },

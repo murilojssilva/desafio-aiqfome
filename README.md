@@ -22,6 +22,7 @@ Além disso, é recomendado o uso de um editor para trabalhar com o código, com
 - [x] Prime Icons
 - [x] VueX
 - [x] Json Server
+- [x] Display Responsivo
 
 ---
 
