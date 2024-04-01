@@ -26,6 +26,14 @@ Além disso, é recomendado o uso de um editor para trabalhar com o código, com
 
 ---
 
+### 🗄️ Aplicação
+
+Para executar a aplicaão na máquina, é utilizado o seguinte comando:
+
+```shell
+$ pnpm pnpm run serve
+```
+
 ### 🗄️ Servidor
 
 Para executar o servidor json com os dados do restaurante, é utilizado o seguinte comando:
